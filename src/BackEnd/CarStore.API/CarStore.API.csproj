@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,6 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\CarStore.Communication\CarStore.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\CarStore.Exceptions\CarStore.Exceptions.csproj" />
+    <ProjectReference Include="..\CarStore.Application\CarStore.Application.csproj" />
+    <ProjectReference Include="..\CarStore.Infrastructure\CarStore.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
