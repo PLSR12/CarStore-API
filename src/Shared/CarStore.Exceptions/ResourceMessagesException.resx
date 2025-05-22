@@ -129,6 +129,9 @@
   <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>Email or password invalid</value>
   </data>
+  <data name="INVALID_TOKEN" xml:space="preserve">
+    <value>Token invalid</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>The name cannot be empty!.</value>
   </data>
@@ -139,6 +142,12 @@
     <value>Password must be less or than six</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
-    <value>Erro desconhecido</value>
+    <value>Error unknown</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="USER_WITHOUT_ACCESS_RESOURCE" xml:space="preserve">
+    <value>User without acess resource</value>
   </data>
 </root>

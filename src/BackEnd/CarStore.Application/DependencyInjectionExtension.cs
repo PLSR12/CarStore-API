@@ -1,5 +1,7 @@
 
 using CarStore.Application.Services.AutoMapper;
+using CarStore.Application.UseCases.Login.DoLogin;
+using CarStore.Application.UseCases.User.Profile;
 using CarStore.Application.UseCases.User.Register;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +31,8 @@ namespace CarStore.Application
         private static void AddUseCases(IServiceCollection services)
         {
             services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+            services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
+            services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         }
     }
 }

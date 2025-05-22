@@ -3,8 +3,12 @@ using CarStore.Application.Services.Cryptography;
 using CarStore.Domain.Repositories;
 using CarStore.Domain.Repositories.User;
 using CarStore.Domain.Security.Cryptography;
+using CarStore.Domain.Security.Tokens;
 using CarStore.Infrastructure.DataAccess;
 using CarStore.Infrastructure.DataAccess.Repositories;
+using CarStore.Infrastructure.Security.Tokens.Access.Generator;
+using CarStore.Infrastructure.Security.Tokens.Access.Validator;
+using CarStore.Infrastructure.Services.LoggedUser;
 using FluentMigrator.Runner;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +26,8 @@ namespace CarStore.Infrastructure
             var connectionString = configuration.ConnectionString();
             AddRepositories(services);
             AddPasswordEncrypter(services, configuration);
+            AddLoggedUser(services);
+            AddTokens(services, configuration);
 
             if (configuration.IsUnitTestEnviroment())
             {
@@ -72,6 +78,27 @@ namespace CarStore.Infrastructure
                         .For.All();
                 });
         }
+
+
+        private static void AddTokens(IServiceCollection services, IConfiguration configuration)
+        {
+            var expirationTimeMinutes = configuration.GetValue<uint>(
+                "Settings:Jwt:ExpirationTimeMinutes"
+            );
+
+            var signingKey = configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
+            services.AddScoped<IAccessTokenGenerator>(options => new JwtTokenGenerator(
+                expirationTimeMinutes,
+                signingKey!
+            ));
+            services.AddScoped<IAccessTokenValidator>(option =>
+            {
+                return new JwtTokenValidator(signingKey!);
+            });
+        }
+        private static void AddLoggedUser(IServiceCollection services) => services.AddScoped<ILoggedUser, LoggedUser>();
+
         private static void AddPasswordEncrypter(IServiceCollection services, IConfiguration configuration)
         {
             var additionalKey = configuration.GetValue<string>("Settings:Password:AdditionalKey");

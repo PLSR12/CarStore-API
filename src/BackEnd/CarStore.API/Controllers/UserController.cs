@@ -1,3 +1,5 @@
+using CarStore.API.Attributes;
+using CarStore.Application.UseCases.User.Profile;
 using CarStore.Application.UseCases.User.Register;
 using CarStore.Communication.Requests;
 using CarStore.Communication.Response;
@@ -17,6 +19,17 @@ namespace CarStore.API.Controllers
             var result = await useCase.Execute(request);
 
             return Created(string.Empty, result);
+        }
+
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ResponseUserProfileJson), StatusCodes.Status200OK)]
+        [AuthenticatedUser]
+        public async Task<IActionResult> GetUserProfile([FromServices] IGetUserProfileUseCase useCase)
+        {
+
+            var result = await useCase.Execute();
+            return Ok(result);
         }
 
     }
