@@ -1,8 +1,10 @@
 
 using CarStore.Application.Services.AutoMapper;
 using CarStore.Application.UseCases.Login.DoLogin;
+using CarStore.Application.UseCases.User.ChangePassword;
 using CarStore.Application.UseCases.User.Profile;
 using CarStore.Application.UseCases.User.Register;
+using CarStore.Application.UseCases.User.Update;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -33,6 +35,8 @@ namespace CarStore.Application
             services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
             services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
+            services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
+            services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
         }
     }
 }

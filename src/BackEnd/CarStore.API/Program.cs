@@ -55,6 +55,16 @@ builder.Services.AddSwaggerGen(options =>
     );
 });
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "CarStore - API",
+        Version = "v1",
+        Description = "Documentação da API da CarStore.",
+    });
+});
+
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
 builder.Services.AddApplications(builder.Configuration);
@@ -66,6 +76,13 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 var app = builder.Build();
+
+
+app.UseSwaggerUI(c =>
+{
+    c.ConfigObject.AdditionalItems["persistAuthorization"] = true;
+});
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

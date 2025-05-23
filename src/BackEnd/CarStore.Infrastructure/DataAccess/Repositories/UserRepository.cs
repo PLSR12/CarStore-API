@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarStore.Infrastructure.DataAccess.Repositories
 {
-    public class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository
+    public class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository, IUserUpdateOnlyRepository
     {
         private readonly CarStoreDbContext _dbContext;
 
@@ -29,11 +29,14 @@ namespace CarStore.Infrastructure.DataAccess.Repositories
         {
             return await _dbContext.Users.AnyAsync(user => user.Id.Equals(userId) && user.Active);
         }
-        public async Task<User> GetById(Guid userId)
+
+        public async Task<User?> GetById(Guid userId)
         {
             return await _dbContext
             .Users
-            .FirstAsync(user => user.Id == userId);
+            .SingleOrDefaultAsync(u => u.Id == userId);
         }
+        public void Update(User user) => _dbContext.Users.Update(user);
+
     }
 }
