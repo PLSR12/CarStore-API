@@ -22,7 +22,9 @@ namespace WebApi.Test.User.Profile
         public async Task Success()
         {
             var token = JwtTokenGeneratorBuilder.Build().Generate(_userIdentifier, _name);
-            var response = await DoGet(METHOD, token: token);
+            var url = $"{METHOD}/{_userIdentifier}";
+
+            var response = await DoGet(url, token: token);
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);

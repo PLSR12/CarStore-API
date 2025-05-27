@@ -3,20 +3,17 @@ using CarStore.Communication.Response;
 using CarStore.Domain.Repositories.User;
 using CarStore.Exceptions;
 using CarStore.Exceptions.ExceptionsBase;
-using CarStore.Infrastructure.Services.LoggedUser;
 
 namespace CarStore.Application.UseCases.User.Profile
 {
     public class GetUserProfileUseCase : IGetUserProfileUseCase
     {
         private readonly IMapper _mapper;
-        private readonly ILoggedUser _loggedUser;
         private readonly IUserReadOnlyRepository _repository;
 
-        public GetUserProfileUseCase(IMapper mapper, ILoggedUser loggedUser, IUserReadOnlyRepository userReadOnlyRepository)
+        public GetUserProfileUseCase(IMapper mapper, IUserReadOnlyRepository userReadOnlyRepository)
         {
             _mapper = mapper;
-            _loggedUser = loggedUser;
             _repository = userReadOnlyRepository;
         }
 
