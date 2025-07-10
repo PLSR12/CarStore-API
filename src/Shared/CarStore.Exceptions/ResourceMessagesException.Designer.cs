@@ -61,6 +61,15 @@ namespace CarStore.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brand not found!.
+        /// </summary>
+        public static string BRAND_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("BRAND_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email already exists.
         /// </summary>
         public static string EMAIL_ALREADY_EXISTS {
@@ -133,6 +142,15 @@ namespace CarStore.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type vehicle not found!.
+        /// </summary>
+        public static string TYPE_VEHICLE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("TYPE_VEHICLE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error unknown.
         /// </summary>
         public static string UNKNOWN_ERROR {
@@ -156,6 +174,105 @@ namespace CarStore.Exceptions {
         public static string USER_WITHOUT_ACCESS_RESOURCE {
             get {
                 return ResourceManager.GetString("USER_WITHOUT_ACCESS_RESOURCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand of vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_BRAND_ID_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_BRAND_ID_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_COLOR_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_COLOR_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engine power vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_ENGINE_POWER_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_ENGINE_POWER_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to License plate vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_LICENSE_PLATE_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_LICENSE_PLATE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to License Plate needed seven characters.
+        /// </summary>
+        public static string VEHICLE_LICENSE_PLATE_INVALID {
+            get {
+                return ResourceManager.GetString("VEHICLE_LICENSE_PLATE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mileage vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_MILEAGE_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_MILEAGE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_MODEL_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_MODEL_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle not found!.
+        /// </summary>
+        public static string VEHICLE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("VEHICLE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owner of  vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_OWNER_ID_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_OWNER_ID_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_TYPE_ID_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_TYPE_ID_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year fabrication vehicle cannot be empty!.
+        /// </summary>
+        public static string VEHICLE_YEAR_FABRICATION_EMPTY {
+            get {
+                return ResourceManager.GetString("VEHICLE_YEAR_FABRICATION_EMPTY", resourceCulture);
             }
         }
     }

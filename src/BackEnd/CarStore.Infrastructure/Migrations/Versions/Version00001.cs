@@ -12,7 +12,7 @@ public class Version00001 : VersionBase
             .WithColumn("Name").AsString(255).NotNullable()
             .WithColumn("Email").AsString().NotNullable()
             .WithColumn("Password").AsString(2000).NotNullable()
-            .WithColumn("OwnerCar").AsString().NotNullable();
+            .WithColumn("Telephone").AsString().NotNullable();
 
     }
 }

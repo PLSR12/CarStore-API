@@ -8,6 +8,9 @@ namespace CarStore.Infrastructure.DataAccess
         public CarStoreDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<TypesVehicle> TypesVehicle { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

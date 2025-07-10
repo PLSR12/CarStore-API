@@ -32,7 +32,7 @@ namespace CarStore.Application.UseCases.Login.DoLogin
                 {
                     Id = user.Id,
                     Name = user.Name,
-                    OwnerCar = user.OwnerCar,
+                    Telephone = user.Telephone,
                     Tokens = new ResponseTokensJson
                     {
                         AccessToken = _accessTokenGenerator.Generate(user.Id, user.Name)

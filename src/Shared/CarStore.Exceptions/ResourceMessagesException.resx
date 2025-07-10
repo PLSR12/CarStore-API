@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BRAND_NOT_FOUND" xml:space="preserve">
+    <value>Brand not found!</value>
+  </data>
   <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
     <value>Email already exists</value>
   </data>
@@ -141,6 +144,9 @@
   <data name="PASSWORD_LENGTH" xml:space="preserve">
     <value>Password must be less or than six</value>
   </data>
+  <data name="TYPE_VEHICLE_NOT_FOUND" xml:space="preserve">
+    <value>Type vehicle not found!</value>
+  </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Error unknown</value>
   </data>
@@ -149,5 +155,38 @@
   </data>
   <data name="USER_WITHOUT_ACCESS_RESOURCE" xml:space="preserve">
     <value>User without acess resource</value>
+  </data>
+  <data name="VEHICLE_BRAND_ID_EMPTY" xml:space="preserve">
+    <value>Brand of vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_COLOR_EMPTY" xml:space="preserve">
+    <value>Color vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_ENGINE_POWER_EMPTY" xml:space="preserve">
+    <value>Engine power vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_LICENSE_PLATE_EMPTY" xml:space="preserve">
+    <value>License plate vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_LICENSE_PLATE_INVALID" xml:space="preserve">
+    <value>License Plate needed seven characters</value>
+  </data>
+  <data name="VEHICLE_MILEAGE_EMPTY" xml:space="preserve">
+    <value>Mileage vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_MODEL_EMPTY" xml:space="preserve">
+    <value>Model vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_NOT_FOUND" xml:space="preserve">
+    <value>Vehicle not found!</value>
+  </data>
+  <data name="VEHICLE_OWNER_ID_EMPTY" xml:space="preserve">
+    <value>Owner of  vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_TYPE_ID_EMPTY" xml:space="preserve">
+    <value>Type of vehicle cannot be empty!</value>
+  </data>
+  <data name="VEHICLE_YEAR_FABRICATION_EMPTY" xml:space="preserve">
+    <value>Year fabrication vehicle cannot be empty!</value>
   </data>
 </root>

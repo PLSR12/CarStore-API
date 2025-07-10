@@ -1,7 +1,10 @@
 ﻿using System.Reflection;
 using CarStore.Application.Services.Cryptography;
 using CarStore.Domain.Repositories;
+using CarStore.Domain.Repositories.Brand;
+using CarStore.Domain.Repositories.TypeVehicle;
 using CarStore.Domain.Repositories.User;
+using CarStore.Domain.Repositories.Vehicle;
 using CarStore.Domain.Security.Cryptography;
 using CarStore.Domain.Security.Tokens;
 using CarStore.Infrastructure.DataAccess;
@@ -58,6 +61,9 @@ namespace CarStore.Infrastructure
             services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
             services.AddScoped<IUserReadOnlyRepository, UserRepository>();
             services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IBrandRepository, BrandRepository>();
+            services.AddScoped<ITypeVehicleRepository, TypeVehicleRepository>();
         }
 
         private static void AddFluentMigrator(
