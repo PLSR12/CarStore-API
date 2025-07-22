@@ -34,7 +34,7 @@ namespace CarStore.API.Filters
 
                 if (!exist)
                 {
-                    throw new CarStoreException(ResourceMessagesException.USER_NOT_FOUND);
+                    throw new InvalidTokenException(ResourceMessagesException.USER_NOT_FOUND);
                 }
             }
             catch (CarStoreException ex)
@@ -61,7 +61,7 @@ namespace CarStore.API.Filters
 
             if (string.IsNullOrEmpty(token))
             {
-                throw new CarStoreException(ResourceMessagesException.INVALID_TOKEN);
+                throw new InvalidTokenException(ResourceMessagesException.INVALID_TOKEN);
             }
 
             var tokenWithOutBearer = token.Replace("Bearer ", string.Empty);

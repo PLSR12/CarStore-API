@@ -61,8 +61,6 @@ namespace WebApi.Test.User.ChangePassword
             var responseData = await JsonDocument.ParseAsync(responseBody);
             var errors = responseData.RootElement.GetProperty("errors").EnumerateArray();
             var expectedMessage = ResourceMessagesException.ResourceManager.GetString("PASSWORD_INVALID");
-
-
             errors.Should().HaveCount(1).And.Contain(c => c.GetString()!.Equals(expectedMessage));
         }
     }

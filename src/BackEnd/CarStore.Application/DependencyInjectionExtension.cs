@@ -6,6 +6,7 @@ using CarStore.Application.UseCases.User.Profile;
 using CarStore.Application.UseCases.User.Register;
 using CarStore.Application.UseCases.User.Update;
 using CarStore.Application.UseCases.Vehicle;
+using CarStore.Application.UseCases.Vehicle.Delete;
 using CarStore.Application.UseCases.Vehicle.GetAll;
 using CarStore.Application.UseCases.Vehicle.Register;
 using Microsoft.Extensions.Configuration;
@@ -40,9 +41,11 @@ namespace CarStore.Application
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
             services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
             services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
-            services.AddScoped<IGetAllVehicleUseCase, GetAllVehicleUseCase>();
+            services.AddScoped<IGetVehicleUseCase, GetVehicleUseCase>();
             services.AddScoped<IGetByIdVehicleUseCase, GetByIdVehicleUseCase>();
             services.AddScoped<IRegisterVehicleUseCase, RegisterVehicleUseCase>();
+            services.AddScoped<IDeleteVehicleUseCase, DeleteVehicleUseCase>();
+            services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
         }
     }
 }

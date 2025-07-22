@@ -1,4 +1,6 @@
-﻿namespace CarStore.Exceptions.ExceptionsBase
+﻿using System.Net;
+
+namespace CarStore.Exceptions.ExceptionsBase
 {
     public class ErrorOnValidationException : CarStoreException
     {
@@ -7,5 +9,8 @@
         {
             ErrorsMessages = errorsMessages;
         }
+
+        public override IList<string> GetErrorMessages() => ErrorsMessages;
+        public override HttpStatusCode GetStatusCode() => HttpStatusCode.BadRequest;
     }
 }

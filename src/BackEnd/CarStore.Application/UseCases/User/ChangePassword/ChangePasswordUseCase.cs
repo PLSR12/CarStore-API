@@ -48,6 +48,7 @@ namespace CarStore.Application.UseCases.User.ChangePassword
             if (!result.IsValid)
                 throw new ErrorOnValidationException(result.Errors.Select(e => e.ErrorMessage).ToList());
 
+
         }
     }
 }

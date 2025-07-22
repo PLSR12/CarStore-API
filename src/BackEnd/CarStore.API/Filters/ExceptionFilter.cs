@@ -11,30 +11,20 @@ namespace CarStore.API.Filters
     {
         public void OnException(ExceptionContext context)
         {
-            if (context.Exception is CarStoreException)
+            if (context.Exception is CarStoreException carStoreException)
             {
-                HandleProjectException(context);
+                HandleProjectException(carStoreException, context);
             }
             else
             {
                 ThrowUnknowException(context);
             }
-
         }
 
-        private static void HandleProjectException(ExceptionContext context)
+        private static void HandleProjectException(CarStoreException carStoreException, ExceptionContext context)
         {
-            if (context.Exception is ErrorOnValidationException exception)
-            {
-                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                context.Result = new BadRequestObjectResult(new ResponseErrorJson(exception.ErrorsMessages));
-            }
-            else if (context.Exception is InvalidLoginException)
-            {
-                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                context.Result = new UnauthorizedObjectResult(new ResponseErrorJson(context.Exception.Message));
-            }
-
+            context.HttpContext.Response.StatusCode = (int)carStoreException.GetStatusCode();
+            context.Result = new ObjectResult(new ResponseErrorJson(carStoreException.GetErrorMessages()));
         }
         private static void ThrowUnknowException(ExceptionContext context)
         {

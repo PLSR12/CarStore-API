@@ -1,10 +1,10 @@
-﻿using System.Net;
+using System.Net;
 
 namespace CarStore.Exceptions.ExceptionsBase
 {
-    public class InvalidLoginException : CarStoreException
+    public class InvalidTokenException : CarStoreException
     {
-        public InvalidLoginException() : base(ResourceMessagesException.EMAIL_OR_PASSWORD_INVALID)
+        public InvalidTokenException(string message) : base(message)
         {
         }
 
