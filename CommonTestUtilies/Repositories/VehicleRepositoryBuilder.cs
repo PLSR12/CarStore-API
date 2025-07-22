@@ -13,10 +13,7 @@ namespace CommonTestUtilies.Repositories
 
         public VehicleRepositoryBuilder Get(IList<Vehicle> vehicles, VehicleFilterDto filter)
         {
-            //_repository
-            //    .Setup(r => r.Get(It.IsAny<VehicleFilterDto>())) // <== aqui!
-            //    .ReturnsAsync(vehicles);
-            //return this;
+
             _repository
             .Setup(r => r.Get(It.IsAny<VehicleFilterDto>()))
             .ReturnsAsync((VehicleFilterDto f) =>
@@ -33,11 +30,13 @@ namespace CommonTestUtilies.Repositories
             return this;
         }
 
-        public void GetById(Guid id, Vehicle? vehicle)
+        public VehicleRepositoryBuilder GetById(Guid id, Vehicle? vehicle)
         {
             _repository
                 .Setup(r => r.GetById(id))
                 .ReturnsAsync(vehicle);
+
+            return this;
         }
 
         public void Add()

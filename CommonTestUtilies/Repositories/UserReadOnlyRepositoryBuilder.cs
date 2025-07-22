@@ -19,11 +19,13 @@ namespace CommonTestUtilies.Repositories
             _repository.Setup(repository => repository.GetByEmailAndPassword(user.Email, user.Password)).ReturnsAsync(user);
         }
 
-        public void GetById(Guid id, User? user)
+        public UserReadOnlyRepositoryBuilder GetById(Guid id, User? user)
         {
             _repository
                 .Setup(repository => repository.GetById(id))
                 .ReturnsAsync(user);
+
+            return this;
         }
 
         public IUserReadOnlyRepository Build() => _repository.Object;

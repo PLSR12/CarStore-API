@@ -10,6 +10,8 @@ namespace WebApi.Test
     public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         private CarStore.Domain.Entities.User _user = default!;
+        private CarStore.Domain.Entities.Vehicle _vehicle = default!;
+
         private string _password = string.Empty;
         private string _name = string.Empty;
 
@@ -19,6 +21,10 @@ namespace WebApi.Test
         public string GetName() => _name;
         public Guid GetUserIdentifier() => _user.Id;
 
+        public string GetVehicleModel() => _vehicle.Model;
+        public string GetVehicleBrand() => _vehicle.Brand.Name;
+        public int? GetVehicleYearFabrication() => _vehicle.YearFabrication;
+        public Guid GetVehicleId() => _vehicle.Id;
 
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -52,10 +58,14 @@ namespace WebApi.Test
         private void StartDataBase(CarStoreDbContext dbContext)
         {
             (_user, _password) = UserBuilder.Build();
+            _vehicle = VehicleBuilder.Build(_user);
 
             _name = _user.Name;
 
             dbContext.Users.Add(_user);
+            dbContext.Vehicles.Add(_vehicle);
+            dbContext.Brands.Add(BrandBuilder.Build());
+            dbContext.TypesVehicle.Add(TypesVehicleBuilder.Build());
 
             dbContext.SaveChanges();
         }

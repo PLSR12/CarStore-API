@@ -9,6 +9,7 @@ namespace CommonTestUtilies.Entities
         {
             return new Faker<TypesVehicle>()
                 .RuleFor(t => t.Id, _ => Guid.NewGuid())
+                .RuleFor(t => t.Name, f => f.Random.Word())
                 .RuleFor(t => t.Description, f => f.Random.Word())
                 .Generate();
         }

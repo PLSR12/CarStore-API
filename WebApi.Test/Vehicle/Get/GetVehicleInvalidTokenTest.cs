@@ -2,22 +2,20 @@ using System.Net;
 using CommonTestUtilies.Tokens;
 using FluentAssertions;
 
-namespace WebApi.Test.User.Profile
+namespace WebApi.Test.Vehicle
 {
-    public class GetVehicleInvalidTokenTest : CarStoreClassFixture
+    public class GetByIdVehicleInvalidTokenTest : CarStoreClassFixture
     {
-        private readonly Guid _userIdentifier;
-        private readonly string METHOD = "user";
-        public GetVehicleInvalidTokenTest(CustomWebApplicationFactory factory) : base(factory)
+        private readonly string METHOD = "vehicle";
+        public GetByIdVehicleInvalidTokenTest(CustomWebApplicationFactory factory) : base(factory)
         {
-            _userIdentifier = factory.GetUserIdentifier();
         }
 
 
         [Fact]
         public async Task Error_Token_Invalid()
         {
-            var url = $"{METHOD}/{_userIdentifier}";
+            var url = $"{METHOD}";
 
             var response = await DoGet(url, token: "tokenInvalid");
             response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
@@ -26,7 +24,7 @@ namespace WebApi.Test.User.Profile
         [Fact]
         public async Task Error_Without_Token()
         {
-            var url = $"{METHOD}/{_userIdentifier}";
+            var url = $"{METHOD}";
 
             var response = await DoGet(url, token: string.Empty);
             response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
@@ -35,7 +33,7 @@ namespace WebApi.Test.User.Profile
         [Fact]
         public async Task Error_Token_With_User_NotFound()
         {
-            var url = $"{METHOD}/{_userIdentifier}";
+            var url = $"{METHOD}";
 
             var token = JwtTokenGeneratorBuilder.Build().Generate(Guid.NewGuid(), "Teste");
             var response = await DoGet(url, token);
