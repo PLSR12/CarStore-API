@@ -43,6 +43,13 @@ namespace CarStore.Application.UseCases.Vehicle.Update
         public async Task<ResponseVehicleJson> Execute(RequestVehicleJson request, Guid vehicleId)
         {
             Validate(request);
+
+
+            var vehicle = await _vehicleRepository.GetById(vehicleId);
+            if (vehicle is null)
+                throw new NotFoundException(ResourceMessagesException.VEHICLE_NOT_FOUND);
+
+
             var loggedUser = await _loggedUser.User();
             var vehicleMapped = _mapper.Map<Domain.Entities.Vehicle>(request);
             vehicleMapped.OwnerId = loggedUser.Id;
@@ -61,11 +68,7 @@ namespace CarStore.Application.UseCases.Vehicle.Update
             if (errors.Any())
                 throw new ErrorOnValidationException(errors);
 
-            var vehicle = await _vehicleRepository.GetById(vehicleId);
-            if (vehicle is null)
-                throw new NotFoundException(ResourceMessagesException.VEHICLE_NOT_FOUND);
-
-            _vehicleRepository.Update(vehicleMapped);
+            //_vehicleRepository.Update(vehicleMapped);
             await _unitOfWork.Commit();
             return _mapper.Map<ResponseVehicleJson>(vehicleMapped);
         }

@@ -9,6 +9,7 @@ using CarStore.Application.UseCases.Vehicle;
 using CarStore.Application.UseCases.Vehicle.Delete;
 using CarStore.Application.UseCases.Vehicle.GetAll;
 using CarStore.Application.UseCases.Vehicle.Register;
+using CarStore.Application.UseCases.Vehicle.Update;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -45,7 +46,7 @@ namespace CarStore.Application
             services.AddScoped<IGetByIdVehicleUseCase, GetByIdVehicleUseCase>();
             services.AddScoped<IRegisterVehicleUseCase, RegisterVehicleUseCase>();
             services.AddScoped<IDeleteVehicleUseCase, DeleteVehicleUseCase>();
-            services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+            services.AddScoped<IUpdateVehicleUseCase, UpdateVehicleUseCase>();
         }
     }
 }

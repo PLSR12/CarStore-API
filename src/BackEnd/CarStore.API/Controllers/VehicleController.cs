@@ -51,7 +51,7 @@ namespace CarStore.API.Controllers
         public async Task<IActionResult> Update([FromServices] IUpdateVehicleUseCase useCase, [FromBody] RequestVehicleJson request, [FromRoute] Guid id)
         {
             var response = await useCase.Execute(request, id);
-            return Created(string.Empty, response);
+            return Ok(response);
         }
 
         [HttpDelete("{id}")]

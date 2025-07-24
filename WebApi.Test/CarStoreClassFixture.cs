@@ -12,8 +12,17 @@ namespace WebApi.Test
             _httpClient = factory.CreateClient();
         }
 
-        protected async Task<HttpResponseMessage> DoPost(string method, object request)
+
+        protected async Task<HttpResponseMessage> DoDelete(string method, string token = "", string culture = "en")
         {
+            AuthorizeRequest(token);
+
+            return await _httpClient.DeleteAsync(method);
+        }
+
+        protected async Task<HttpResponseMessage> DoPost(string method, object request, string token = "")
+        {
+            AuthorizeRequest(token);
             return await _httpClient.PostAsJsonAsync(method, request);
         }
 

@@ -4,11 +4,11 @@ using FluentAssertions;
 
 namespace WebApi.Test.Vehicle.GetById
 {
-    public class GetByIdVehicleInvalidTokenTest : CarStoreClassFixture
+    public class RegisterVehicleInvalidTokenTest : CarStoreClassFixture
     {
         private readonly Guid _vehicleId;
 
-        public GetByIdVehicleInvalidTokenTest(CustomWebApplicationFactory factory) : base(factory)
+        public RegisterVehicleInvalidTokenTest(CustomWebApplicationFactory factory) : base(factory)
         {
             _vehicleId = factory.GetVehicleId();
         }
