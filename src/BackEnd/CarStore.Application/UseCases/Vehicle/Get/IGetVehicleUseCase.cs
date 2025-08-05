@@ -5,7 +5,7 @@ namespace CarStore.Application.UseCases.Vehicle.GetAll
 {
     public interface IGetVehicleUseCase
     {
-        public Task<ResponseVehiclesJson> Execute(VehicleFilterDto filter);
+        public Task<List<ResponseVehicleJson>> Execute(VehicleFilterDto filter);
 
     }
 }

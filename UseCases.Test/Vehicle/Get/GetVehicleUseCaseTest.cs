@@ -18,8 +18,8 @@ namespace UseCases.Test.Vehicle.Get
             var useCase = CreateUseCase(vehicles, filter);
             var result = await useCase.Execute(filter);
             result.Should().NotBeNull();
-            result.Vehicles.Should().NotBeNullOrEmpty();
-            result.Vehicles.Should().HaveCount(vehicles.Count);
+            result.Should().NotBeNullOrEmpty();
+            result.Should().HaveCount(vehicles.Count);
         }
 
         [Fact]
@@ -38,9 +38,9 @@ namespace UseCases.Test.Vehicle.Get
             var useCase = CreateUseCase(vehicles, filter);
             var result = await useCase.Execute(filter);
             result.Should().NotBeNull();
-            result.Vehicles.Should().NotBeNullOrEmpty();
-            result.Vehicles.Should().HaveCount(vehicles.Count);
-            result.Vehicles.Should().OnlyContain(v => v.Brand.Name == fordBrand.Name);
+            result.Should().NotBeNullOrEmpty();
+            result.Should().HaveCount(vehicles.Count);
+            result.Should().OnlyContain(v => v.Brand.Name == fordBrand.Name);
         }
 
         [Fact]
@@ -55,9 +55,9 @@ namespace UseCases.Test.Vehicle.Get
             var useCase = CreateUseCase(vehicles, filter);
             var result = await useCase.Execute(filter);
             result.Should().NotBeNull();
-            result.Vehicles.Should().NotBeNullOrEmpty();
-            result.Vehicles.Should().HaveCount(vehicles.Count);
-            result.Vehicles.Should().OnlyContain(v => v.Owner.Name == user.Name);
+            result.Should().NotBeNullOrEmpty();
+            result.Should().HaveCount(vehicles.Count);
+            result.Should().OnlyContain(v => v.Owner.Name == user.Name);
         }
 
         [Fact]
@@ -81,8 +81,8 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().NotBeNullOrEmpty();
-            result.Vehicles.Should().OnlyContain(v => v.Model == modelFilter);
+            result.Should().NotBeNullOrEmpty();
+            result.Should().OnlyContain(v => v.Model == modelFilter);
         }
 
 
@@ -107,8 +107,8 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().NotBeNullOrEmpty();
-            result.Vehicles.Should().OnlyContain(v => v.YearFabrication == yearFilter);
+            result.Should().NotBeNullOrEmpty();
+            result.Should().OnlyContain(v => v.YearFabrication == yearFilter);
         }
 
         [Fact]
@@ -137,9 +137,9 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().NotBeNullOrEmpty();
-            result.Vehicles.Should().HaveCount(vehicles.Count);
-            result.Vehicles.Should().OnlyContain(v => v.Brand.Name == brand.Name && v.Model == model);
+            result.Should().NotBeNullOrEmpty();
+            result.Should().HaveCount(vehicles.Count);
+            result.Should().OnlyContain(v => v.Brand.Name == brand.Name && v.Model == model);
         }
 
         [Fact]
@@ -159,7 +159,7 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().BeEmpty();
+            result.Should().BeEmpty();
         }
 
 
@@ -179,7 +179,7 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().BeEmpty();
+            result.Should().BeEmpty();
         }
 
         [Fact]
@@ -198,7 +198,7 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().BeEmpty();
+            result.Should().BeEmpty();
         }
 
         [Fact]
@@ -217,7 +217,7 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().BeEmpty();
+            result.Should().BeEmpty();
         }
 
 
@@ -237,7 +237,7 @@ namespace UseCases.Test.Vehicle.Get
             var result = await useCase.Execute(filter);
 
             result.Should().NotBeNull();
-            result.Vehicles.Should().BeEmpty();
+            result.Should().BeEmpty();
         }
 
 

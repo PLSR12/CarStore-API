@@ -19,16 +19,13 @@ namespace CarStore.Application.UseCases.Vehicle.GetAll
             _repository = repository;
         }
 
-        public async Task<ResponseVehiclesJson> Execute(VehicleFilterDto filter)
+        public async Task<List<ResponseVehicleJson>> Execute(VehicleFilterDto filter)
         {
             var vehicles = await _repository.Get(filter);
 
             var mapped = _mapper.Map<List<ResponseVehicleJson>>(vehicles);
 
-            return new ResponseVehiclesJson
-            {
-                Vehicles = mapped
-            };
+            return mapped;
         }
     }
 }

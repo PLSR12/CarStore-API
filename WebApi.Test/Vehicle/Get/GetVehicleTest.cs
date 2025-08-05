@@ -35,10 +35,10 @@ namespace WebApi.Test.Vehicle.Get
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);
-            var vehiclesList = responseData.RootElement.GetProperty("vehicles");
+            var vehiclesList = responseData.RootElement;
 
+            vehiclesList.ValueKind.Should().Be(JsonValueKind.Array);
             vehiclesList.GetArrayLength().Should().BeGreaterThan(0);
-
         }
 
         [Fact]
@@ -49,8 +49,9 @@ namespace WebApi.Test.Vehicle.Get
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);
-            var vehiclesList = responseData.RootElement.GetProperty("vehicles");
+            var vehiclesList = responseData.RootElement;
 
+            vehiclesList.ValueKind.Should().Be(JsonValueKind.Array);
             vehiclesList.GetArrayLength().Should().BeGreaterThan(0);
         }
 
@@ -64,8 +65,9 @@ namespace WebApi.Test.Vehicle.Get
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);
-            var vehiclesList = responseData.RootElement.GetProperty("vehicles");
+            var vehiclesList = responseData.RootElement;
 
+            vehiclesList.ValueKind.Should().Be(JsonValueKind.Array);
             vehiclesList.GetArrayLength().Should().BeLessThanOrEqualTo(0);
         }
 
@@ -77,7 +79,7 @@ namespace WebApi.Test.Vehicle.Get
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);
-            var vehiclesList = responseData.RootElement.GetProperty("vehicles");
+            var vehiclesList = responseData.RootElement;
 
             vehiclesList.GetArrayLength().Should().BeGreaterThan(0);
         }
@@ -92,8 +94,9 @@ namespace WebApi.Test.Vehicle.Get
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);
-            var vehiclesList = responseData.RootElement.GetProperty("vehicles");
+            var vehiclesList = responseData.RootElement;
 
+            vehiclesList.ValueKind.Should().Be(JsonValueKind.Array);
             vehiclesList.GetArrayLength().Should().BeLessThanOrEqualTo(0);
 
         }
@@ -106,7 +109,8 @@ namespace WebApi.Test.Vehicle.Get
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);
-            var vehiclesList = responseData.RootElement.GetProperty("vehicles");
+            var vehiclesList = responseData.RootElement;
+
 
             vehiclesList.GetArrayLength().Should().BeGreaterThan(0);
         }
@@ -121,7 +125,7 @@ namespace WebApi.Test.Vehicle.Get
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             await using var responseBody = await response.Content.ReadAsStreamAsync();
             var responseData = await JsonDocument.ParseAsync(responseBody);
-            var vehiclesList = responseData.RootElement.GetProperty("vehicles");
+            var vehiclesList = responseData.RootElement;
 
             vehiclesList.GetArrayLength().Should().BeLessThanOrEqualTo(0);
 

@@ -80,7 +80,7 @@ namespace CarStore.Infrastructure
                     options
                         .AddMySql8()
                         .WithGlobalConnectionString(connectionString)
-                        .ScanIn(Assembly.Load("CarStore.Infrastructure"))
+                        .ScanIn(Assembly.Load("CarStore.Infrastructure.SQL"))
                         .For.All();
                 });
         }

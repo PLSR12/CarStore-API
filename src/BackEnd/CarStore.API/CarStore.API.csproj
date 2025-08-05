@@ -11,10 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\CarStore.Communication\CarStore.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\CarStore.Exceptions\CarStore.Exceptions.csproj" />
     <ProjectReference Include="..\CarStore.Application\CarStore.Application.csproj" />
-    <ProjectReference Include="..\CarStore.Infrastructure\CarStore.Infrastructure.csproj" />
+    <ProjectReference Include="..\CarStore.Infrastructure\CarStore.Infrastructure.SQL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,7 @@ namespace CarStore.API.Controllers
     public class VehicleController : CarStoreController
     {
         [HttpGet()]
-        [ProducesResponseType(typeof(ResponseVehiclesJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseVehicleJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
 
         public async Task<IActionResult> Get([FromServices] IGetVehicleUseCase useCase, [FromQuery] VehicleFilterDto filter)
