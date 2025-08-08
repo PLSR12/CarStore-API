@@ -43,7 +43,6 @@ namespace CarStore.Infrastructure.DataAccess.Repositories
                 .Include(v => v.Owner)
                 .Include(v => v.Brand)
                 .Include(v => v.Type)
-                .Take(100)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(filter.Model))
