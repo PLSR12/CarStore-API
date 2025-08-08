@@ -5,7 +5,7 @@ namespace CarStore.Infrastructure.DataAccess
 {
     public class CarStoreDbContext : DbContext
     {
-        public CarStoreDbContext(DbContextOptions options) : base(options) { }
+        public CarStoreDbContext(DbContextOptions<CarStoreDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Brand> Brands { get; set; }
