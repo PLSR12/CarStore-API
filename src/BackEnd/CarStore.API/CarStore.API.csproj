@@ -7,10 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.MySql" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastrucutre.Redis\CarStore.Infrastrucutre.Redis.csproj" />
     <ProjectReference Include="..\..\Shared\CarStore.Exceptions\CarStore.Exceptions.csproj" />
     <ProjectReference Include="..\CarStore.Application\CarStore.Application.csproj" />
     <ProjectReference Include="..\CarStore.Infrastructure\CarStore.Infrastructure.SQL.csproj" />
