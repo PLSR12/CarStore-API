@@ -43,6 +43,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Test", "Validato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Test", "WebApi.Test\WebApi.Test.csproj", "{E99631F1-F30A-490D-B5A2-58D921FE311D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarStore.Infrastrucutre.Redis", "Infrastrucutre.Redis\CarStore.Infrastrucutre.Redis.csproj", "{B749FDC7-7E1F-4BCC-A9F6-A9F027111773}"
+	ProjectSection(ProjectDependencies) = postProject
+		{15474626-6AFE-45FF-8362-23189D5FC11C} = {15474626-6AFE-45FF-8362-23189D5FC11C}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +90,10 @@ Global
 		{E99631F1-F30A-490D-B5A2-58D921FE311D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E99631F1-F30A-490D-B5A2-58D921FE311D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E99631F1-F30A-490D-B5A2-58D921FE311D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B749FDC7-7E1F-4BCC-A9F6-A9F027111773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B749FDC7-7E1F-4BCC-A9F6-A9F027111773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B749FDC7-7E1F-4BCC-A9F6-A9F027111773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B749FDC7-7E1F-4BCC-A9F6-A9F027111773}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +109,7 @@ Global
 		{30C54314-604D-464E-9D0F-F41AF15E2152} = {943EAC43-B9FD-4A36-90B7-88AB125FB331}
 		{B69C42C6-BBC0-486B-ACF9-0563570220C7} = {943EAC43-B9FD-4A36-90B7-88AB125FB331}
 		{E99631F1-F30A-490D-B5A2-58D921FE311D} = {943EAC43-B9FD-4A36-90B7-88AB125FB331}
+		{B749FDC7-7E1F-4BCC-A9F6-A9F027111773} = {69E32225-6CFC-4967-A9CD-3B699FB5D78D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C407CB21-C6D3-4A1B-B551-DDF8A989E550}
