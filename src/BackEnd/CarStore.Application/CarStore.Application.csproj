@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\CarStore.Exceptions\CarStore.Exceptions.csproj" />
     <ProjectReference Include="..\CarStore.Domain\CarStore.Domain.csproj" />
+    <ProjectReference Include="..\CarStore.Exceptions\CarStore.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

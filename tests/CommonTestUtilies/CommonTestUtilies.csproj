@@ -12,8 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\BackEnd\CarStore.Application\CarStore.Application.csproj" />
-    <ProjectReference Include="..\src\BackEnd\CarStore.Infrastructure\CarStore.Infrastructure.SQL.csproj" />
+    <ProjectReference Include="..\..\src\BackEnd\CarStore.Application\CarStore.Application.csproj" />
+    <ProjectReference Include="..\..\src\BackEnd\CarStore.Domain\CarStore.Domain.csproj" />
+    <ProjectReference Include="..\..\src\BackEnd\CarStore.Infrastructure.SQL\CarStore.Infrastructure.SQL.csproj" />
   </ItemGroup>
 
 </Project>

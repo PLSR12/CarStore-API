@@ -1,5 +1,7 @@
+using CarStore.Domain.Cache;
 using CarStore.Infrastructure.DataAccess;
 using CommonTestUtilies.Entities;
+using CommonTestUtilies.Redis;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +36,7 @@ namespace WebApi.Test
         {
             builder.UseEnvironment("Test").ConfigureServices(services =>
             {
+                // preciso tirar o redis dos testes, ele está atrapalhando
                 var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<CarStoreDbContext>));
 
                 if (descriptor is not null)
@@ -48,6 +51,16 @@ namespace WebApi.Test
                     options.UseInMemoryDatabase("InMemoryDbForTesting");
                     options.UseInternalServiceProvider(provider);
                 });
+
+                var cacheDescriptor = services.SingleOrDefault(d => d.ServiceType == typeof(ICacheService));
+                if (cacheDescriptor != null)
+                {
+                    services.Remove(cacheDescriptor);
+                }
+
+                // Adiciona o cache fake para testes
+                services.AddScoped<ICacheService, InMemoryCacheService>();
+
 
                 using var scope = services.BuildServiceProvider().CreateScope();
 

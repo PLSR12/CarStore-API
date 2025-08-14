@@ -16,10 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Infrastrucutre.Redis\CarStore.Infrastrucutre.Redis.csproj" />
-    <ProjectReference Include="..\..\Shared\CarStore.Exceptions\CarStore.Exceptions.csproj" />
     <ProjectReference Include="..\CarStore.Application\CarStore.Application.csproj" />
-    <ProjectReference Include="..\CarStore.Infrastructure\CarStore.Infrastructure.SQL.csproj" />
+    <ProjectReference Include="..\CarStore.Exceptions\CarStore.Exceptions.csproj" />
+    <ProjectReference Include="..\CarStore.Infrastructure.SQL\CarStore.Infrastructure.SQL.csproj" />
+    <ProjectReference Include="..\CarStore.Infrastrucutre.Redis\CarStore.Infrastrucutre.Redis.csproj" />
   </ItemGroup>
 
 </Project>

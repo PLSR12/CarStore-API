@@ -8,11 +8,14 @@ namespace CarStore.Infrastrucutre.Redis
 {
     public static class DependencyInjectionExtension
     {
+
         public static IServiceCollection AddInfraRedisServices(this IServiceCollection services, IConfiguration configuration)
         {
+
             services.AddCacheServices(configuration);
 
             return services;
+
         }
 
         private static void AddCacheServices(this IServiceCollection services, IConfiguration configuration)
