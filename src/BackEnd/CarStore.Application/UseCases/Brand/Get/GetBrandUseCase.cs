@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CarStore.Communication.Response;
+using CarStore.Domain.Dtos;
 using CarStore.Domain.Repositories.Brand;
 
 namespace CarStore.Application.UseCases.Brand.GetAll
@@ -18,9 +19,9 @@ namespace CarStore.Application.UseCases.Brand.GetAll
             _repository = repository;
         }
 
-        public async Task<List<ResponseBrandJson>> Execute()
+        public async Task<List<ResponseBrandJson>> Execute(BrandFilterDto filter)
         {
-            var brands = await _repository.Get();
+            var brands = await _repository.Get(filter);
 
             var mapped = _mapper.Map<List<ResponseBrandJson>>(brands);
 

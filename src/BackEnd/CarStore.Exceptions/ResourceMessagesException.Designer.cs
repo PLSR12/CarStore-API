@@ -70,6 +70,15 @@ namespace CarStore.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The description cannot be empty!.
+        /// </summary>
+        public static string DESCRIPTION_EMPTY {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email already exists.
         /// </summary>
         public static string EMAIL_ALREADY_EXISTS {

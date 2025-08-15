@@ -8,9 +8,11 @@ namespace CarStore.Infrastrucutre.Redis.Service
     public class RedisCacheService : ICacheService
     {
         private readonly IDatabase _database;
+        private readonly IConnectionMultiplexer _redis;
 
         public RedisCacheService(IConnectionMultiplexer connectionMultiplexer)
         {
+            _redis = connectionMultiplexer;
             _database = connectionMultiplexer.GetDatabase();
         }
 
@@ -36,6 +38,17 @@ namespace CarStore.Infrastrucutre.Redis.Service
         public async Task RemoveAsync(string key)
         {
             await _database.KeyDeleteAsync(key);
+        }
+
+        public async Task RemoveByPrefixAsync(string prefix)
+        {
+            var server = _redis.GetServer(_redis.GetEndPoints()[0]);
+            var keys = server.Keys(pattern: $"{prefix}*").ToArray();
+
+            foreach (var key in keys)
+            {
+                await _database.KeyDeleteAsync(key);
+            }
         }
     }
 }

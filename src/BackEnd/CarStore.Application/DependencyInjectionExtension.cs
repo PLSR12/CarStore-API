@@ -1,6 +1,10 @@
 
 using CarStore.Application.Services.AutoMapper;
+using CarStore.Application.UseCases.Brand;
+using CarStore.Application.UseCases.Brand.Delete;
 using CarStore.Application.UseCases.Brand.GetAll;
+using CarStore.Application.UseCases.Brand.Register;
+using CarStore.Application.UseCases.Brand.Update;
 using CarStore.Application.UseCases.Login.DoLogin;
 using CarStore.Application.UseCases.User.ChangePassword;
 using CarStore.Application.UseCases.User.Profile;
@@ -42,11 +46,17 @@ namespace CarStore.Application
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
             services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
             services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+
             services.AddScoped<IGetByIdVehicleUseCase, GetByIdVehicleUseCase>();
             services.AddScoped<IRegisterVehicleUseCase, RegisterVehicleUseCase>();
             services.AddScoped<IDeleteVehicleUseCase, DeleteVehicleUseCase>();
             services.AddScoped<IUpdateVehicleUseCase, UpdateVehicleUseCase>();
+
             services.AddScoped<IGetBrandUseCase, GetBrandUseCase>();
+            services.AddScoped<IGetByIdBrandUseCase, GetByIdBrandUseCase>();
+            services.AddScoped<IRegisterBrandUseCase, RegisterBrandUseCase>();
+            services.AddScoped<IUpdateBrandUseCase, UpdateBrandUseCase>();
+            services.AddScoped<IDeleteBrandUseCase, DeleteBrandUseCase>();
         }
     }
 }

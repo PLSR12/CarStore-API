@@ -1,6 +1,8 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using CarStore.Communication.Requests;
 using CarStore.Communication.Response;
+using CarStore.Domain.Cache;
 using CarStore.Domain.Repositories;
 using CarStore.Domain.Repositories.Brand;
 using CarStore.Domain.Repositories.TypeVehicle;
@@ -21,6 +23,8 @@ namespace CarStore.Application.UseCases.Vehicle.Register
         private readonly ILoggedUser _loggedUser;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ICacheService _cacheService;
+
 
         public RegisterVehicleUseCase(
         ILoggedUser LoggedUser,
@@ -29,7 +33,9 @@ namespace CarStore.Application.UseCases.Vehicle.Register
         ITypeVehicleRepository typeVehicleRepository,
         IUserReadOnlyRepository userRepository,
         IUnitOfWork unitOfWork,
-        IMapper mapper
+        IMapper mapper,
+        ICacheService cacheService
+
         )
         {
             _vehicleRepository = vehicleRepository;
@@ -39,6 +45,7 @@ namespace CarStore.Application.UseCases.Vehicle.Register
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _loggedUser = LoggedUser;
+            _cacheService = cacheService;
         }
         public async Task<ResponseVehicleJson> Execute(RequestVehicleJson request)
         {
@@ -63,6 +70,7 @@ namespace CarStore.Application.UseCases.Vehicle.Register
 
             await _vehicleRepository.Add(vehicle);
             await _unitOfWork.Commit();
+            await _cacheService.RemoveByPrefixAsync("vehicle:");
             return _mapper.Map<ResponseVehicleJson>(vehicle);
         }
 

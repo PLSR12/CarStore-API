@@ -30,7 +30,7 @@ namespace CarStore.Infrastructure.DataAccess.Repositories
         public async Task<IList<Vehicle>> Get(VehicleFilterDto filter)
         {
             var filterJson = JsonConvert.SerializeObject(filter);
-            var cacheKey = $"vehicles:filter:{filterJson}";
+            var cacheKey = $"vehicle:filter:{filterJson}";
 
             var cachedVehicles = await _cacheService.GetAsync<List<Vehicle>>(cacheKey);
 
@@ -81,7 +81,7 @@ namespace CarStore.Infrastructure.DataAccess.Repositories
                       .Include(v => v.Brand)
                       .Include(v => v.Type)
                       .SingleOrDefaultAsync(u => u.Id == vehicleId);
-            await _cacheService.SetAsync(cacheKey, vehicle, TimeSpan.FromMinutes(5));
+            await _cacheService.SetAsync(cacheKey, vehicle, TimeSpan.FromMinutes(10));
             return vehicle;
         }
 

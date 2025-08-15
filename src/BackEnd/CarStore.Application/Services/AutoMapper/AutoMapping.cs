@@ -1,4 +1,5 @@
 using AutoMapper;
+using CarStore.Application.Dtos.Requests;
 using CarStore.Communication.Requests;
 using CarStore.Communication.Response;
 
@@ -18,6 +19,7 @@ namespace CarStore.Application.Services.AutoMapper
             CreateMap<RequestRegisterUserJson, Domain.Entities.User>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore());
             CreateMap<RequestVehicleJson, Domain.Entities.Vehicle>();
+            CreateMap<RequestBrandJson, Domain.Entities.Brand>();
         }
 
         private void DomainToResponse()

@@ -120,6 +120,9 @@
   <data name="BRAND_NOT_FOUND" xml:space="preserve">
     <value>Brand not found!</value>
   </data>
+  <data name="DESCRIPTION_EMPTY" xml:space="preserve">
+    <value>The description cannot be empty!</value>
+  </data>
   <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
     <value>Email already exists</value>
   </data>
